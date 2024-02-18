@@ -6,11 +6,8 @@ on:
       - master 
 jobs:
   docker:
-    runs-on: 176.97.218.73
+    runs-on: stage
     steps:
       -
-        name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
-      -
-        name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        name: build 
+        uses: docker build -t registry.dosma.ir/stage/backend:${{github.sha}}	
