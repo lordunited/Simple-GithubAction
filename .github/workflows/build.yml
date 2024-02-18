@@ -6,7 +6,7 @@ on:
       - master 
 jobs:
   run-test:
-    runs-on: stage
+    runs-on: srv4795496900
     steps:
     - uses: actions/checkout@v2
       name: Pull Source Code
