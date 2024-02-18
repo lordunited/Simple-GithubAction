@@ -12,5 +12,5 @@ jobs:
       name: Pull Source Code
     - name: Build Backend stage image
       run: |
-         docker build -t registry.dosma.ir/stage/backend:${{github.sha} .
+         docker build -t registry.dosma.ir/stage/backend:${{github.sha}} .
       shell: bash
