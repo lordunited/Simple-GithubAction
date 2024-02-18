@@ -10,4 +10,4 @@ jobs:
     steps:
       -
         name: build 
-        uses: docker build -t registry.dosma.ir/stage/backend:${{github.sha}}	
+        uses: docker build -t registry.dosma.ir/stage/backend:${{github.sha}} .	
