@@ -8,6 +8,8 @@ jobs:
   docker:
     runs-on: stage
     steps:
-      -
-        name: build 
-        uses: docker build -t registry.dosma.ir/stage/backend:${{github.sha}} .	
+    - uses: actions/checkout@v2
+    - name: Build Backend stage image
+      run: |
+         docker build -t registry.dosma.ir/stage/backend:${{github.sha} .
+      shell: bash
