@@ -2,8 +2,7 @@ name: Build Docker Container
 on:
   push:
     branches:
-      - main
-      - master 
+      - staging
 jobs:
   run-test:
     runs-on: [self-hosted , Linux, X64, stage]
@@ -12,5 +11,13 @@ jobs:
       name: Pull Source Code
     - name: Build Backend stage image
       run: |
-         docker build -t registry.dosma.ir/stage/backend:${{github.sha}} .
+         docker build -t registry.**.*/backend:${{github.sha}} .
+      shell: bash
+    - name: Change version
+      run: |
+         sed -i   's/image:.*/image: registry.***.*\/backend:${{github.sha}}/' /opt/backend/docker-compose.yml 
+      shell: bash
+    - name: compose up
+      run: |
+        docker compose -f /opt/backend/docker-compose.yml up -d
       shell: bash
